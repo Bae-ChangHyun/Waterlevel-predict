@@ -1,8 +1,10 @@
 data/dam
-data/rf
-data/tide_level
 data/wl
+data/tide_level
+data/rf
+
 image/
-result/
 논문/
+result/
+
 catboost_info/

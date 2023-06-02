@@ -1,1 +1,2 @@
-# Waterlevel-predict
+# waterlevel_prediction
+Predict jamsu water level
