@@ -1,7 +1,7 @@
-data/dam
-data/wl
-data/tide_level
-data/rf
+data/dam/
+data/wl/
+data/tide_level/
+data/rf/
 
 image/
 논문/
