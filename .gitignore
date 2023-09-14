@@ -1,8 +1,7 @@
 data/dam/
-data/wl/
-data/tide_level/
+data/bridge/
+data/tide/
 data/rf/
-data/numpy_data/
 
 image/
 논문/
