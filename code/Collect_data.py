@@ -117,9 +117,6 @@ if __name__ == "__main__":
     SERVICE_KEY = input("발급받은 한강홍수통제소 API를 입력하세요.")
     SERVICE_KEY2 = input("발급받은 바다누리통제소 API를 입력하세요.")
 
-    # SERVICE_KEY = "7B5ACEA7-DD6A-47D9-BC04-9983B326A6F7"  # 한강 홍수 통제소 api Key
-    # SERVICE_KEY2 = "h06f9NbyBwof013dRERoXQ=="             # 바다누리해양정보 서비스 api key
-    # SERVICE_KEY3 = "hrpEnK8QCPZytITscmIHRg=="
     while True:
         source = input(
             "bridge / dam / rf / tide 중 하나를 입력하세요.(종료하려면 아무 키나 입력하세요): ")
