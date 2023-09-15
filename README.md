@@ -1,5 +1,10 @@
 # Waterlevel prediction
-2023년 홍수기 잠수교 수위 예측
+2023년 홍수기 잠수교 수위 예측 <br>
+
+<b>
+코드 구조 변경 중  <br>
+현재 Collect_data, Preprocessing_data.py 까지만 완료됨 23.09.15 <br>
+</b>b>
 
 ## [Collect_data.py]
 
