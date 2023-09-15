@@ -9,17 +9,11 @@ import calendar
 import time
 
 #! 업데이트 해야 할 내용
-#! api키도 입력받는 형식으로 변경
 #! 현재날짜와 현재월 불러오고 그거 이상으로는 입력안되도록 변경하기
 #! 입력형식 맞지 않게 입력해도 다시 입력하게 바꾸기
-#! 경로를 설정할 수 있도록 바꾸기
 
 
 def get_info(source):
-
-    SERVICE_KEY = "7B5ACEA7-DD6A-47D9-BC04-9983B326A6F7"  # 한강 홍수 통제소 api Key
-    SERVICE_KEY2 = "h06f9NbyBwof013dRERoXQ=="             # 바다누리해양정보 서비스 api key
-    # SERVICE_KEY3 = "hrpEnK8QCPZytITscmIHRg=="
 
     if (source == 'bridge'):
         url = f"http://api.hrfco.go.kr/{SERVICE_KEY}/waterlevel/list/10M/"
@@ -64,7 +58,8 @@ def collect_data(start, end, source):
 
     for name, code in table.items():
         print(f"{name} Crawling start ###################")
-        os.makedirs(f'data/{source}/{name}', exist_ok=True)  # 하위 폴더가 없을시 생성
+        os.makedirs(f'{script_dir}/../data/{source}/{name}',
+                    exist_ok=True)  # 하위 폴더가 없을시 생성
         for year in range(start_year, end_year+1):    # 시작년도 ~ 마지막년도
             for month in range(start_month, end_month+1):  # 시작월 ~ 마지막 월
 
@@ -111,13 +106,20 @@ def collect_data(start, end, source):
                         break
                     df['record_time'] = df.index
                 df.to_csv(
-                    f"data/{source}/{name}/{year}{month:02}_{name}.csv", index=False)
+                    f"{script_dir}/../data/{source}/{name}/{year}{month:02}_{name}.csv", index=False)
                 time.sleep(3)
             print(f"{year} end ")
         print(f"{name} Crawling end ###################")
 
 
 if __name__ == "__main__":
+    script_dir = os.path.dirname(__file__)  # 현재 스크립트 파일의 디렉토리 경로를 가져옴
+    SERVICE_KEY = input("발급받은 한강홍수통제소 API를 입력하세요.")
+    SERVICE_KEY2 = input("발급받은 바다누리통제소 API를 입력하세요.")
+
+    # SERVICE_KEY = "7B5ACEA7-DD6A-47D9-BC04-9983B326A6F7"  # 한강 홍수 통제소 api Key
+    # SERVICE_KEY2 = "h06f9NbyBwof013dRERoXQ=="             # 바다누리해양정보 서비스 api key
+    # SERVICE_KEY3 = "hrpEnK8QCPZytITscmIHRg=="
     while True:
         source = input(
             "bridge / dam / rf / tide 중 하나를 입력하세요.(종료하려면 아무 키나 입력하세요): ")

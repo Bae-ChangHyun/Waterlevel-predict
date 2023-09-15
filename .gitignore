@@ -2,6 +2,7 @@ data/dam/
 data/bridge/
 data/tide/
 data/rf/
+data/
 
 image/
 논문/
@@ -9,3 +10,4 @@ result/
 
 catboost_info/
 
+data/full_data.csv
