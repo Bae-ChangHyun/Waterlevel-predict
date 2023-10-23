@@ -2,25 +2,25 @@
 
 ## 2023년 잠수교 수위 예측 (1월 ~ 9월) <br>
 
-"""
-├── data
-│   ├── 2023_answer.csv : 2023년 잠수교 수위
-│   ├── full_data.csv: 2013~2023 모든 feature,target 데이터
-│   └── ppd_data.csv: 전처리가 완료된 데이터 
-├── code
-│   ├── 0.Full.ipynb : 데이터 수집을 제외한 전체 코드
-│   ├── 1. Collect_data.py: 데이터 수집
-│   ├── 2. Prepare_data.py: 수집된 데이터 병합 및 후처리
-│   ├── 3. EDA.ipynb: 데이터 eda, 전처리, feature engineering
-│   ├── 4. Modeling.ipynb: 선행시간에 따른 2023년 잠수교 수위 예측
-│   └──data_source.txt: 수집하고자하는 데이터 목록
-├── result
-│   ├── leadtime(n)
-│   │   ├── final_model-1.csv: 전체월로 학습한 모델로 예측
-│   │   ├── final_model-2.csv: 비홍수기로 학습한 모델로 예측
-│   │   ├── final_model-3.csv: 홍수기로 학습한 모델로 예측
-└── └── └── lt(n)_predict.csv: 가장 성능이 좋은 예측 최종 결과 
-"""
+
+├── data                     <br>
+│   ├── 2023_answer.csv : 2023년 잠수교 수위 <br>
+│   ├── full_data.csv: 2013~2023 모든 feature,target 데이터 <br>
+│   └── ppd_data.csv: 전처리가 완료된 데이터  <br>
+├── code <br>
+│   ├── 0.Full.ipynb : 데이터 수집을 제외한 전체 코드 <br>
+│   ├── 1. Collect_data.py: 데이터 수집 <br>
+│   ├── 2. Prepare_data.py: 수집된 데이터 병합 및 후처리 <br>
+│   ├── 3. EDA.ipynb: 데이터 eda, 전처리, feature engineering <br>
+│   ├── 4. Modeling.ipynb: 선행시간에 따른 2023년 잠수교 수위 예측 <br>
+│   └──data_source.txt: 수집하고자하는 데이터 목록 <br>
+├── result <br>
+│   ├── leadtime(n) <br>
+│   │   ├── final_model-1.csv: 전체월로 학습한 모델로 예측 <br>
+│   │   ├── final_model-2.csv: 비홍수기로 학습한 모델로 예측 <br>
+│   │   ├── final_model-3.csv: 홍수기로 학습한 모델로 예측 <br>
+└── └── └── lt(n)_predict.csv: 가장 성능이 좋은 예측 최종 결과  <br>
+
 
 * * * * * * * * *
 
