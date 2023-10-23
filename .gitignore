@@ -1,13 +1,15 @@
-data/dam/
-data/bridge/
-data/tide/
-data/rf/
-data/
 
+data/bridge
+data/dam
+data/rf
+data/tide
+
+
+model/
 image/
-논문/
-result/
 
-catboost_info/
+code/catboost_info/
+code/logs.log
+code/수위 예측 lstm.ipynb
 
-data/full_data.csv
+-Dacon-Hangang-Riv-7th-solution-main/
