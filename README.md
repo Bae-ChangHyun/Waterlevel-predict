@@ -2,8 +2,8 @@
 
 ## 2023년 잠수교 수위 예측 (1월 ~ 9월) <br>
 
-
-<!-- ├── data
+"""
+├── data
 │   ├── 2023_answer.csv : 2023년 잠수교 수위
 │   ├── full_data.csv: 2013~2023 모든 feature,target 데이터
 │   └── ppd_data.csv: 전처리가 완료된 데이터 
@@ -19,8 +19,8 @@
 │   │   ├── final_model-1.csv: 전체월로 학습한 모델로 예측
 │   │   ├── final_model-2.csv: 비홍수기로 학습한 모델로 예측
 │   │   ├── final_model-3.csv: 홍수기로 학습한 모델로 예측
-└── └── └── lt(n)_predict.csv: 가장 성능이 좋은 예측 최종 결과 -->
-
+└── └── └── lt(n)_predict.csv: 가장 성능이 좋은 예측 최종 결과 
+"""
 
 * * * * * * * * *
 
