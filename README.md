@@ -1,6 +1,8 @@
 # Waterlevel prediction (last update 2023.10.23)
-2023년 잠수교 수위 예측 (1월 ~ 9월) <br>
 
+## 2023년 잠수교 수위 예측 (1월 ~ 9월) <br>
+
+'''
 ├── data
 │   ├── 2023_answer.csv : 2023년 잠수교 수위
 │   ├── full_data.csv: 2013~2023 모든 feature,target 데이터
@@ -18,13 +20,13 @@
 │   │   ├── final_model-2.csv: 비홍수기로 학습한 모델로 예측
 │   │   ├── final_model-3.csv: 홍수기로 학습한 모델로 예측
 └── └── └── lt(n)_predict.csv: 가장 성능이 좋은 예측 최종 결과
-
+'''
 
 * * * * * * * * *
 
 ## [1. Collect_data.py]
 
-- Origin 데이터수집- api를 이용한 크롤링 방식
+Origin 데이터수집- api를 이용한 크롤링 방식
 
   <b>유의사항</b> <br>
   -> 미리 한강홍수통제소, 바다누리 해양정보서비스의 API키를 발급받아야 함.<br>
@@ -47,9 +49,9 @@
       - data/tide/ <br>
           강화대교 조위 <br>
 
-## [2. Preprocessing_data.py] <br>
+## [2. Preprocessing_data.py]
 
-- Origin 데이터 병합 <br>
+Origin 데이터 병합 <br>
 
 <b>유의사항</b> <br>
 -> 미리 1. Collect_data.py를 이용하여 데이터를 수집해야함.(경로 변경x) <br>
@@ -57,9 +59,9 @@
 -> 기본 제공 지점 외 다른 지점을 추가로 수집했을 경우 py내 def preprocessing에서 수위->해발표고 변환 값을 튜닝해줘야 함.(한강홍수통제소 참고)  <br>
 -> 기본적으로 년,월로 나눠있는 데이터들을 병합. <br>
 
-## [3. EDA.ipynb] <br>
+## [3. EDA.ipynb]
 
-- 데이터 EDA <br>
+데이터 EDA <br>
 
 <b>EDA</b> <br>
 -> 잠수교 인근 대교들과의 수위 비교.
@@ -75,9 +77,9 @@
 -> hour, month 컬럼 추가
 -> 잠수교 변화율 컬럼 추가
 
-## [4. Modeling.ipynb] <br>
+## [4. Modeling.ipynb]
 
-- 최종 예측 <br>
+최종 예측 <br>
 
 <b>Modeling</b> <br>
 -> 선행시간을 입력하면, 2023년 잠수교 수위를 예측
@@ -85,7 +87,7 @@
 
 ## [5. Modeling.ipynb] <br>
 
-- 통합본 <br>
+통합본 <br>
 
 <b>Full</b> <br>
 -> 데이터 수집을 제외한 eda 및 modeling 실험이 포함되어 있음.
