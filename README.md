@@ -3,95 +3,60 @@
 ## 2023년 잠수교 수위 예측 (1월 ~ 9월) <br>
 
 
-```bash
-├── data                    
-│   ├── 2023_answer.csv : 2023년 잠수교 수위 
-│   ├── full_data.csv: 2013~2023 모든 feature,target 데이터 
-│   └── ppd_data.csv: 전처리가 완료된 데이터  
-├── code
-│   ├── 0.Full.ipynb : 데이터 수집을 제외한 전체 코드 
-│   ├── 1. Collect_data.py: 데이터 수집
-│   ├── 2. Prepare_data.py: 수집된 데이터 병합 및 후처리 
-│   ├── 3. EDA.ipynb: 데이터 eda, 전처리, feature engineering 
-│   ├── 4. Modeling.ipynb: 선행시간에 따른 2023년 잠수교 수위 예측
-│   ├── data_source.txt: 수집하고자하는 데이터 목록
-│   └── .env : api key를 저장하는 환경변수
-├── result 
-│   ├── leadtime(n) 
-│   │   ├── final_model-1.csv: 전체월로 학습한 모델로 예측 
-│   │   ├── final_model-2.csv: 비홍수기로 학습한 모델로 예측
-│   │   ├── final_model-3.csv: 홍수기로 학습한 모델로 예측
-└── └── └── lt(n)_predict.csv: 가장 성능이 좋은 예측 최종 결과  
+
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FBae-ChangHyun%2FWaterlevel-predict&count_bg=%23113CD5&title_bg=%23555555&icon=github.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com) <br>
+<img alt="GitHub forks" src="https://img.shields.io/github/forks/Bae-ChangHyun/Waterlevel-predict">
+
+개발기간: <br>
+`개인`(2022.05 ~ 2023.05) <br>
+
+### 1. Subject <br>
+대한민국 강원도의 산불 발생 확률(0~1)을 기상, 지형, 인적 데이터를 이용하여 예측하는 프로젝트.<br>
+기상 데이터는 tabular 데이터로, 지형과 인적데이터는 image 데이터로 구성하여,<br> 멀티모달 학습방식을 사용하여 모델 학습.<br>
+
+- 기상데이터: 기온,습도,풍속,강수량<br>
+- 지형데이터: 고도, 경사도, NDVI<br>
+- 인적데이터: 인구밀도, 토지이용도<br>
+
+프로젝트 회고 -> [블로그](https://changsroad.tistory.com/category/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%82%B0%EB%B6%88%20%EB%B0%9C%EC%83%9D%20%EC%98%88%EC%B8%A1)
+
+### 2. Installation <br>
+
+아래 구글드라이브에서 두 파일을 다운로드 후, [wiki](https://github.com/Bae-ChangHyun/Forestfire-predict/wiki/Simple-Code-discription)에 기재되어 있는 사전준비를 미리 해놔야 코드가 오류없이 돌아갑니다.<br>
+또한 설정된 파일 경로와 파일명을 임의로 바꾸면 안됩니다. <br>
+[raw파일다운로드](https://drive.google.com/file/d/1Kew7kQTDRqo_X_-T-rW06XjGvHvlBEMm/view?usp=drive_link) / 
+[asos파일다운로드](https://drive.google.com/file/d/1KfERjVehpwHckMcY6gKZHB8tRyKIegVM/view?usp=drive_link)  <br>
+
+! 데이터의 용량이 크기 때문에 작업 디렉토리를 용량이 넓은 드라이브에 설정 하는 것을 추천합니다
+
+### 3. Run <br>
+`train_model.py`(데이터 수집 및 모델 학습)의 총 실행시간은 대략 2일정도 걸립니다. <br>
+단, 멈췄다가 재시작할시 이전 중단지점부터 다시 시작하기 때문에 멈췄다가 다시 실행하여도 상관없습니다. <br>
+
+`train_model.py`의 경우 실행후, 아무것도 입력할 필요없으며, <br>
+`test_model.py`의 경우 실행 후, prompt에 안내되는 형식에 따라 input 숫자를 입력하면 됩니다. <br>
+(과거시점의 경우 입력되는 날짜/시간의 산불발생확률맵을 생성, <br> 미래시점(오늘+2일내)의 경우 입력되는 날짜 이후 1시간30분, 2시간 30분, 3시간30분 뒤의 산불발생확률맵을 생) <br>
+
+```python
+pip install -r requirements.txt
+python train_model.py
+python test_model.py
 ```
+### 4. Result <br>
+[2022.03.04 12:00 강원도 영월 산불]-(좌측:국가산불위험예보시스템 / 우측: 프로젝트산출물) <br>
+<img src="https://github.com/Bae-ChangHyun/Forestfire-predict--multimodal/assets/48899047/a5336b36-6114-4da3-9316-51624fac2c19.png"  width="600" height="300"/>
 
 
+<div align=center><h1>📚 STACKS</h1></div>
 
-* * * * * * * * *
-
-## [1. Collect_data.py]
-
-Origin 데이터수집- api를 이용한 크롤링 방식
-
-  <b>유의사항</b> <br>
-  -> 미리 한강홍수통제소, 바다누리 해양정보서비스의 API키를 발급받아야 함.<br>
-  -> 입력받을 시 오타 입력시 경고없이 종료됨.<br>
-  -> 모든 데이터는 10분간격의 데이터로 수집됨.<br>
-  -> 현재 디렉토리 하위에 data라는 폴더를 생성하고 아래 폴더명으로 파일 자 생성됨.<br>
-  -> 년,월 별로 파일이 개별 생성 이후 다음 Preprocessisng_data.py를 이용하여 병합해야함.<br>
-  -> 현재 년, 월 이후를 입력시 오류 발생(추후 입력불가하게 수정예정)<br>
-  -> 다른 지점의 데이터를 수집하려면, 폴더 내 data_source.txt에 동일 형식으로 추가해주면 됨.<br>
-  
-  - 한강홍수통제소(https://hrfco.go.kr/main.do)<br>
-      - data/bridge/ <br>
-          잠수교, 청담대교, 한강대교, 행주대교, 광진교, 팔당대교, 중랑교 수위 및 유량 <br>
-      - data/data/ <br>
-          팔당댐 수위, 유입량, 저수량, 공용량, 방류량 <br>
-      - data/rf/ <br>
-          대곡교, 진관교, 송정동 강수량 <br>
-  
-  - 바다누리해양정보서비스(http://www.khoa.go.kr/oceangrid/khoa/intro.do) <br>
-      - data/tide/ <br>
-          강화대교 조위 <br>
-
-## [2. Preprocessing_data.py]
-
-Origin 데이터 병합 <br>
-
-<b>유의사항</b> <br>
--> 미리 1. Collect_data.py를 이용하여 데이터를 수집해야함.(경로 변경x) <br>
--> 입력받을 시 오타 입력시 경고없이 종료됨. <br>
--> 기본 제공 지점 외 다른 지점을 추가로 수집했을 경우 py내 def preprocessing에서 수위->해발표고 변환 값을 튜닝해줘야 함.(한강홍수통제소 참고)  <br>
--> 기본적으로 년,월로 나눠있는 데이터들을 병합. <br>
-
-## [3. EDA.ipynb]
-
-데이터 EDA <br>
-
-<b>EDA</b> <br>
--> 잠수교 인근 대교들과의 수위 비교.
--> 대교들의 흐름 파악(하류에 있는 수위가 먼저 변함. 전류리>한강대교>행주대교>잠수교~)
--> 년,월별 잠수교의 수위 추세 확인(특정 월, 특정 년에 잠수교의 수위가 높음)
-
-<b>Preprocessing</b> <br>
--> 각 데이터들의 이상치 제거
--> 결측치가 50% 이상 및 다중공산성 발생하는 column 제거
--> 이전 30분의 이동평균을 이용하여 결측치 제거
-
-<b>Feature engineering</b> <br>
--> hour, month 컬럼 추가
--> 잠수교 변화율 컬럼 추가
-
-## [4. Modeling.ipynb]
-
-최종 예측
-
-<b>Modeling</b> <br>
--> 선행시간을 입력하면, 2023년 잠수교 수위를 예측
--> 선행시간 값 자유로이 추가 가능
-
-## [5. Modeling.ipynb] <br>
-
-통합본 <br>
-
-<b>Full</b> <br>
--> 데이터 수집을 제외한 eda 및 modeling 실험이 포함되어 있음.
+<div align=center> 
+  <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white">
+  <img src="https://img.shields.io/badge/tensorflow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white">
+  <br>
+  <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
+  <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
+  <br>
+  <img src="https://img.shields.io/badge/qgis-589632?style=for-the-badge&logo=qgis&logoColor=white">
+  <img src="https://img.shields.io/badge/gdal-5CAE58?style=for-the-badge&logo=gdal&logoColor=white">
+  <br>
+</div>
