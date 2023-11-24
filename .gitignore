@@ -11,6 +11,7 @@ image/
 code/catboost_info/
 code/logs.log
 code/수위 예측 lstm
+code/wandb
 
 -Dacon-Hangang-Riv-7th-solution-main/
 
