@@ -14,7 +14,8 @@
 │   ├── 2. Prepare_data.py: 수집된 데이터 병합 및 후처리 
 │   ├── 3. EDA.ipynb: 데이터 eda, 전처리, feature engineering 
 │   ├── 4. Modeling.ipynb: 선행시간에 따른 2023년 잠수교 수위 예측
-│   └──data_source.txt: 수집하고자하는 데이터 목록
+│   ├── data_source.txt: 수집하고자하는 데이터 목록
+│   └── .env : api key를 저장하는 환경변수
 ├── result 
 │   ├── leadtime(n) 
 │   │   ├── final_model-1.csv: 전체월로 학습한 모델로 예측 
