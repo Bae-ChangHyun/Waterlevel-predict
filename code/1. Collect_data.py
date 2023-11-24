@@ -7,6 +7,7 @@ import pandas as pd
 import requests
 import calendar
 import time
+from dotenv import load_dotenv
 
 #! 업데이트 해야 할 내용
 #! 현재날짜와 현재월 불러오고 그거 이상으로는 입력안되도록 변경하기
@@ -32,14 +33,10 @@ def load_table_from_file(filename, source):
 def get_info(source):
     table = load_table_from_file("data_source.txt", source)
     
-    if source == 'bridge':
-         url = f"http://api.hrfco.go.kr/{SERVICE_KEY}/waterlevel/list/10M/"
-    elif source == 'dam':
-        url = f"http://api.hrfco.go.kr/{SERVICE_KEY}/dam/list/10M/"
-    elif source == 'rf':
-        url = f"http://api.hrfco.go.kr/{SERVICE_KEY}/rainfall/list/10M/"
-    else:
-        url = f"http://www.khoa.go.kr/api/oceangrid/tideObs/search.do?ServiceKey={SERVICE_KEY2}"
+    if source == 'bridge':url = f"http://api.hrfco.go.kr/{SERVICE_KEY}/waterlevel/list/10M/"
+    elif source == 'dam':url = f"http://api.hrfco.go.kr/{SERVICE_KEY}/dam/list/10M/"
+    elif source == 'rf':url = f"http://api.hrfco.go.kr/{SERVICE_KEY}/rainfall/list/10M/"
+    else:url = f"http://www.khoa.go.kr/api/oceangrid/tideObs/search.do?ServiceKey={SERVICE_KEY2}"
         
     return url, table
 
@@ -79,12 +76,10 @@ def collect_data(start, end, source):
                     df_month = []
                     for day in range(1, ends+1):
                         start_date = f"{year}{month:02}{day:02}"
-                        url = origin_url + \
-                            f"&ObsCode={code}&Date={start_date}&ResultType=json"
+                        url = origin_url + f"&ObsCode={code}&Date={start_date}&ResultType=json"
                         response = requests.get(url, verify=False)
                         try:
-                            df = pd.DataFrame(
-                                response.json()['result']['data'])
+                            df = pd.DataFrame(response.json()['result']['data'])
                             df = df.set_index('record_time', drop=True)
                             df.index = pd.to_datetime(df.index)
                             df['tide_level'] = df['tide_level'].astype('float')
@@ -102,23 +97,27 @@ def collect_data(start, end, source):
                         print("존재하지 않는 일자입니다.")
                         break
                     df['record_time'] = df.index
-                df.to_csv(
-                    f"{script_dir}/../data/{source}/{name}/{year}{month:02}_{name}.csv", index=False)
+                df.to_csv(f"{script_dir}/../data/{source}/{name}/{year}{month:02}_{name}.csv", index=False)
                 time.sleep(3)
             print(f"{year} end ")
         print(f"{name} Crawling end ###################")
 
 
 if __name__ == "__main__":
+    load_dotenv()
+    SERVICE_KEY = os.getenv("SERVICE_KEY")
+    if(SERVICE_KEY==None):
+        print("발급받은 한강홍수통제소 API를 세팅해주세요.")
+        exit()
+    SERVICE_KEY2 = os.getenv("SERVICE_KEY2")
+    if(SERVICE_KEY2==None):
+        print("발급받은 바다누리통제소 API를 세팅해주세요")
+        exit()
     script_dir = os.path.dirname(__file__)  # 현재 스크립트 파일의 디렉토리 경로를 가져옴
-    SERVICE_KEY = input("발급받은 한강홍수통제소 API를 입력하세요: ")
-    SERVICE_KEY2 = input("발급받은 바다누리통제소 API를 입력하세요: ")
 
     while True:
-        source = input(
-            "bridge / dam / rf / tide 중 하나를 입력하세요.(종료하려면 아무 키나 입력하세요): ")
-        if source not in ['bridge', 'dam', 'rf', 'tide']:
-            break
+        source = input("bridge / dam / rf / tide 중 하나를 입력하세요.(종료하려면 아무 키나 입력하세요): ")
+        if source not in ['bridge', 'dam', 'rf', 'tide']:break
         start = input("시작일을 입력하세요(Ex. 202309): ")
         end = input("종료일를 입력하세요(Ex. 202311): ")
         collect_data(start, end, source)

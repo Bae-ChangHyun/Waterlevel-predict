@@ -128,10 +128,8 @@ def merge_data(source):
 
 def check_data():
     prev = glob(os.path.join(script_dir, "../data/full_data.csv"))
-    if (prev != []):
-        return 1
-    else:
-        return 0
+    if (prev != []):return 1
+    else: return 0
 
 
 def finalize_data():
@@ -160,20 +158,17 @@ def finalize_data():
         print("작업을 종료합니다.")
     return 0
 
-
 if __name__ == "__main__":
     script_dir = os.path.dirname(__file__)  # 현재 스크립트 파일의 디렉토리 경로를 가져옴
     while True:
-        source = input(
-            "bridge / dam / rf / tide 중 하나를 입력하세요.(종료하려면 아무 키나 입력하세요): ")
+        source = input("bridge / dam / rf / tide 중 하나를 입력하세요.(종료하려면 아무 키나 입력하세요): ")
         if source not in ['bridge', 'dam', 'rf', 'tide']:
             break
         if (check_data() == 0):
             data_storage = merge_data(source)
             data_storage = preprocessing(source, data_storage)
             data = save_data(source, data_storage)
-        else:
-            break
+        else:break
         print("요청하신 데이터 전처리가 완료되었습니다.")
     finalize_data()
 print("데이터 저장이 완료되었습니다.")
