@@ -3,14 +3,12 @@ data/bridge
 data/dam
 data/rf
 data/tide
-
-
+prev_ver/
+result/
 model/
 image/
 
-code/catboost_info/
-code/logs.log
-code/수위 예측 lstm
+
 code/wandb
 
 -Dacon-Hangang-Riv-7th-solution-main/
