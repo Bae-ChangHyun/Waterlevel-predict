@@ -1,16 +1,8 @@
-
-data/bridge
-data/dam
-data/rf
-data/tide
-prev_ver/
+data/full_data.csv
+data/ppd_data.csv
+data/
 result/
 model/
-image/
-
-
-code/wandb
-
 -Dacon-Hangang-Riv-7th-solution-main/
 
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,pythonvanilla,jupyternotebooks,windows
@@ -144,3 +136,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,pythonvanilla,jupyternotebooks,windows
+
