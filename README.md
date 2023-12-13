@@ -1,6 +1,6 @@
 # Waterlevel prediction (last update 2023.10.23)
 
-## 2023년 잠수교,한강대교,행주대교,청담대교 수위 예측 (1월 ~ 9월) <br>
+## 한강 수위 예측 <br>
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FBae-ChangHyun%2FWaterlevel-predict&count_bg=%23113CD5&title_bg=%23555555&icon=github.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com) 
 <img alt="GitHub forks" src="https://img.shields.io/github/forks/Bae-ChangHyun/Waterlevel-predict">
@@ -13,9 +13,9 @@ LGBM 을 이용하여 한강에 있는 대교들의 수위를 예측.
 각각 다른 모델 학습방식 중 가장 좋은 예측 성능을 나타내는 학습 방법 선택
 
 #### 1-1 Subject 1 
-잠수교,한강대교,행주대교,청담대교 2023년 수위(해발표고(El.m))를 예측
+잠수교,한강대교,행주대교,청담대교 2023년 1~9월 수위(해발표고(El.m))를 예측
 #### 1-2 Subject 2 
-잠수교의 2023년 수위(해발표고(El.m))를 선행시간에 따라 예측
+잠수교의 2023년 1~9월 수위(해발표고(El.m))를 선행시간에 따라 예측
 
 프로젝트 회고 -> [블로그](https://changsroad.tistory.com/category/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%9E%A0%EC%88%98%EA%B5%90%20%EC%88%98%EC%9C%84%20%EC%98%88%EC%B8%A1)
 
