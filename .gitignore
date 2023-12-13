@@ -4,6 +4,8 @@ data/
 result/
 model/
 -Dacon-Hangang-Riv-7th-solution-main/
+code/.env
+code/recorddb.sqlite3
 
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,pythonvanilla,jupyternotebooks,windows
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,pythonvanilla,jupyternotebooks,windows
