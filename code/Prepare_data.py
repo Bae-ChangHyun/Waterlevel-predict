@@ -71,7 +71,6 @@ def preprocessing(source, data_storage):
             data_storage[i]['wl'] = data_storage[i]['wl'].replace(' ', '0')
             data_storage[i]['wl'] = data_storage[i]['wl'].astype('float')
             data_storage[i]['wl'] = data_storage[i]['wl']*100 + calc[i]
-
             data_storage[i].columns = ['ymdhm', 'wl_'+i, 'fw_'+i]
 
     elif (source == 'rf'):
