@@ -12,10 +12,10 @@
 [Wiki](https://github.com/Bae-ChangHyun/Waterlevel-predict/wiki)
 
 ### 1. Subject <br>
-1. Subject 1 
-  잠수교,한강대교,행주대교,청담대교 2023년 1~9월 수위(해발표고(El.m))를 선행시간 10분에 예측
-2. Subject 2 
-  잠수교의 2023년 1~9월 수위(해발표고(El.m))를 선행시간에 따라 예측
+1. `Subject 1` <br>
+  잠수교,한강대교,행주대교,청담대교 2023년 1~9월 수위(해발표고(El.m))를 선행시간 10분에 예측 <br>
+2. `Subject 2` <br>
+  잠수교의 2023년 1~9월 수위(해발표고(El.m))를 선행시간에 따라 예측 <br>
 
 ### 2. File <br>
 1. `Collect_data.py`<br>
