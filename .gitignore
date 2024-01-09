@@ -3,7 +3,8 @@ result/
 model/
 -Dacon-Hangang-Riv-7th-solution-main/
 code/.env
-code/recorddb.sqlite3
+code/study_record
+code/study_record_bak
 
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,pythonvanilla,jupyternotebooks,windows
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,pythonvanilla,jupyternotebooks,windows
