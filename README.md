@@ -9,9 +9,8 @@
 `개인`(2022.05 ~ 2023.05) <br>
 
 <a href="https://changsroad.tistory.com/category/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%88%98%EC%9C%84%20%EC%98%88%EC%B8%A1"><img src="https://img.shields.io/badge/주제1-333333?style=%20for-the-badge&logo=tistory&logoColor=%23333333&color=%23fc4e42&link=[https%3A%2F%2Fchangsroad.tistory.com%2F](https://changsroad.tistory.com/category/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%88%98%EC%9C%84%20%EC%98%88%EC%B8%A1)"/></a> 
-
-
-<a href="https://changsroad.tistory.com/category/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%88%98%EC%9C%84%20%EC%98%88%EC%B8%A1"><img src="https://img.shields.io/badge/wiki-3776AB?logo=wikipedia&logoColor=%23000000&color=%23FFFFFF&link=https%3A%2F%2Fgithub.com%2FBae-ChangHyun%2FWaterlevel-predict%2Fwiki"/></a>
+<a href="https://www.notion.so/55301e5d1c8f4c08b78db12de2e16994?pvs=4"><img src="https://img.shields.io/badge/%EC%A3%BC%EC%A0%9C2-3776AB?logo=notion&logoColor=%23000000&color=%23FFFFFF&link=https%3A%2F%2Fwww.notion.so%2F55301e5d1c8f4c08b78db12de2e16994%3Fpvs%3D4"/></a>
+<a href="https://changsroad.tistory.com/category/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%88%98%EC%9C%84%20%EC%98%88%EC%B8%A1"><img src="https://img.shields.io/badge/%EC%A3%BC%EC%A0%9C2-3776AB?logo=notion&logoColor=%23000000&color=%23FFFFFF&link=https%3A%2F%2Fwww.notion.so%2F55301e5d1c8f4c08b78db12de2e16994%3Fpvs%3D4"/></a>
 
 
 ![Static Badge](https://img.shields.io/badge/%EC%A3%BC%EC%A0%9C2-3776AB?logo=notion&logoColor=%23000000&color=%23FFFFFF&link=https%3A%2F%2Fwww.notion.so%2F55301e5d1c8f4c08b78db12de2e16994%3Fpvs%3D4)
